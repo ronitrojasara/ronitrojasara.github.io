@@ -10,6 +10,34 @@
     <img width="100%" src="webmage.svg"></img>
     <script>
 		var pass = prompt("Enter the password:")
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+		const firebaseConfig = {
+		  apiKey: "AIzaSyBcSW25nlMSr0oQyImHAY0o2NeVDzxF8oE",
+		  authDomain: "ronitrojasara-github-io.firebaseapp.com",
+		  projectId: "ronitrojasara-github-io",
+		  storageBucket: "ronitrojasara-github-io.appspot.com",
+		  messagingSenderId: "452329577432",
+		  appId: "1:452329577432:web:9a1c157a63aa8ad4e8b0ad"
+		};
+	  
+		const app = initializeApp(firebaseConfig);
+		
+		
+		import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";
+
+const auth = getAuth();
+signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
+  .then((userCredential) => {
+    
+    const user = userCredential.user;
+    
+	console.log("Done")
+	window.location.href = "mypage.html"
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
 	</script>
     <h1 style="color: red;">
         Wrong password!
