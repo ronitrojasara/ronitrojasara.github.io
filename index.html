@@ -32,22 +32,21 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
     const user = userCredential.user;
     
 	console.log("Done")
-	document.write("root")
+	// document.write("root")
+    document.getElementById("door").innerHTML = "root";
+    
 // 	window.location.href = "mypage.html"
   })
   .catch((error) => {
+    document.getElementById("door").innerHTML = "authentication failed!<br/> access denied.";
+    document.getElementById("helper").innerHTML = "open the console and use the help() function to know more...";
     const errorCode = error.code;
     const errorMessage = error.message;
   });
 	</script>
-    <h1 style="color: red;">
-        Wrong password!
+    <h1 style="color: red;" id="door">
+        :)
     </h1>
-	<h6>please open the console and use the help() function to know more...</h6>
-<!--     <a href="Blogs.html">Browse My Latest Blogs</a>
-    <br/>
-    <a href="Projects.html">My Projects</a>
-    <br/>
-<a href="Contact.html">About & Contect</a> -->
+	<h6 id="helper"></h6>
 </body>
 </html>
