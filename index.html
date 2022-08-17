@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
 </head>
-<body style="font-family: 'Courier New', monospace">
-    <img width="100%" src="webmage.svg"></img>
+<body style="font-family: 'Courier New', monospace;background-color: black;color: white;" id="body">
+    <img width="100%" src="webmage.jpg" id="image"></img>
     <script type="module">
+    if ( new Date().getHours() < 19 && new Date().getHours()>6 ){
+  document.getElementById("body").style.color = "black";
+  document.getElementById("body").style.backgroundColor = "white";
+  document.getElementById("myImg").src = "webmage.svg";
+}else{
+  document.getElementById("body").style.color = "while";
+  document.getElementById("body").style.backgroundColor = "black";
+}
+    
 		var pass = prompt("Enter the password:")
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
 		const firebaseConfig = {
@@ -30,12 +39,8 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
   .then((userCredential) => {
     
     const user = userCredential.user;
-    
 	console.log("Done")
-	// document.write("root")
     document.getElementById("door").innerHTML = "root";
-    
-// 	window.location.href = "mypage.html"
   })
   .catch((error) => {
     document.getElementById("door").innerHTML = "authentication failed!<br/> access denied.";
