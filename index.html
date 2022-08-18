@@ -30,7 +30,8 @@
   document.getElementById("image").src = "webmage.jpg";
 }
 	    var useragent = navigator.userAgent.toLowerCase();
-  var Android = /(android)/i.test(navigator.useragent);
+//   var Android = /(android)/i.test(navigator.useragent);
+	    var Android = useragent.indexOf("android") > -1;
 alert(useragent)
 	    alert(Android)
   if(Android){
