@@ -8,9 +8,18 @@
 </head>
 <body style="font-family: monospace;background-color: black;color: white;" id="body">
     <img width="100%" id="image"></img>
+	<script>
+	function help() {
+      document.write("your task is to create a user and gain the access of RTDB, use hint() to know more...<br/>")
+  }
+  function hint() {
+    document.write("get the firebase project's informations from the webpage.<br/>")
+	  document.write("i will send the email for next task.<br/>")
+  }
+	</script>
     <script type="module">
     const isDay = new Date().getHours() < 19 && new Date().getHours()>6 
-    if ( isDay){
+    if (isDay){
   document.getElementById("body").style.color = "black";
   document.getElementById("body").style.backgroundColor = "white";
   document.getElementById("image").src = "webmage.svg";
