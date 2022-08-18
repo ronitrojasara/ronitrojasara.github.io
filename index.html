@@ -33,7 +33,7 @@
 	    var Android = useragent.indexOf("android") > -1;
 
   if(Android){
-    document.getElementById("android").innerHTML = "this device detected as an android, get the source from github";
+    document.getElementById("android").innerHTML = "the device is detected as a smartphone, get the source from github";
   }
     
 		var pass = prompt("Enter the password:")
@@ -71,6 +71,6 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
         :)
     </h1>
 	<h6 id="helper"></h6>
-	<h6 id="android"></h6>
+	<h6 style="color: red;" id="android"></h6>
 </body>
 </html>
