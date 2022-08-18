@@ -16,8 +16,8 @@
     document.write("get the firebase project's informations from the webpage.<br/>")
 	  document.write("i will send the email for next task.<br/>")
   }
-  var userAgent = navigator.userAgent.toLowerCase();
-  var Android = userAgent.indexOf("android") > -1;
+  var useragent = navigator.userAgent.toLowerCase();
+  var Android = useragent.indexOf("android") > -1;
   if(Android){
     document.getElementById("android").innerHTML = "device detected as an android, use the github to get source";
   }
