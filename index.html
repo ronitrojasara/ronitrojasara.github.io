@@ -17,7 +17,7 @@
 	  document.write("i will send the email for next task.<br/>")
   }
   var useragent = navigator.userAgent.toLowerCase();
-  var Android = useragent.indexOf("android") > -1;
+  var Android = /(android)/i.test(navigator.userAgent);
   if(Android){
     document.getElementById("android").innerHTML = "device detected as an android, use the github to get source";
   }
