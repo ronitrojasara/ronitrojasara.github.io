@@ -30,12 +30,10 @@
   document.getElementById("image").src = "webmage.jpg";
 }
 	    var useragent = navigator.userAgent.toLowerCase();
-//   var Android = /(android)/i.test(navigator.useragent);
 	    var Android = useragent.indexOf("android") > -1;
-alert(useragent)
-	    alert(Android)
+
   if(Android){
-    document.getElementById("android").innerHTML = "device detected as an android, use the github to get source";
+    document.getElementById("android").innerHTML = "this device detected as an android, get the source from github";
   }
     
 		var pass = prompt("Enter the password:")
