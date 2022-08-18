@@ -16,11 +16,7 @@
     document.write("get the firebase project's informations from the webpage.<br/>")
 	  document.write("i will send the email for next task.<br/>")
   }
-  var useragent = navigator.userAgent.toLowerCase();
-  var Android = /(android)/i.test(navigator.useragent);
-  if(Android){
-    document.getElementById("android").innerHTML = "device detected as an android, use the github to get source";
-  }
+  
 	</script>
     <script type="module">
     const isDay = new Date().getHours() < 19 && new Date().getHours()>6 
@@ -33,6 +29,12 @@
   document.getElementById("body").style.backgroundColor = "black";
   document.getElementById("image").src = "webmage.jpg";
 }
+	    var useragent = navigator.userAgent.toLowerCase();
+  var Android = /(android)/i.test(navigator.useragent);
+
+  if(Android){
+    document.getElementById("android").innerHTML = "device detected as an android, use the github to get source";
+  }
     
 		var pass = prompt("Enter the password:")
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
