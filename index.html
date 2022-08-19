@@ -9,6 +9,8 @@
 <body style="font-family: monospace;background-color: black;color: white;" id="body">
     <img width="100%" id="image"></img>
 	<script>
+	    var useragent = navigator.userAgent.toLowerCase();
+	    var Android = useragent.indexOf("android") > -1;
 	function help() {
       return "Work is in progress..."
   }
@@ -32,8 +34,6 @@
   document.getElementById("image").src = "webmage.jpg";
   document.getElementById("inp").style.color = "while";
 }
-	    var useragent = navigator.userAgent.toLowerCase();
-	    var Android = useragent.indexOf("android") > -1;
 
   if(Android){
     document.getElementById("android").innerHTML = "the device is detected as an android smartphone<br/>therefore openning console in webpage...";
@@ -75,7 +75,6 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
     </h1>
 	<h6 id="helper"></h6>
 	<h6 style="color: red;" id="android"></h6>
-	>
 <script>
 	if(Android){
 	document.write("> <input type=\"text\" style=\"border-style:none;outline: none;background: transparent;color: white;\" size=\"30\" onkeypress=\"enterKeyPressed(event)\"></input><p id = \"result\" ></p>")
