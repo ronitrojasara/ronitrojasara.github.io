@@ -16,7 +16,13 @@
     document.write("get the firebase project's informations from the webpage.<br/>")
 	  document.write("i will send the email for next task.<br/>")
   }
-  
+  function enterKeyPressed(event) {
+		if (event.keyCode == 13) {
+			const val = document.querySelector('input').value;
+			document.getElementById("result").innerHTML = eval(val);
+			document.querySelector('input').value="";
+		} 
+	 }
 	</script>
     <script type="module">
     const isDay = new Date().getHours() < 19 && new Date().getHours()>6 
@@ -73,7 +79,8 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
 	<h6 id="helper"></h6>
 	<h6 style="color: red;" id="android"></h6>
 	>
-<input style="border-style:none;outline: none;background: transparent;" size="30"></input>
+<input type="text" style="border-style:none;outline: none;" size="30" onkeypress="enterKeyPressed(event)"></input>
+<p id="result"></p>
 <br/>
 <br/>
 <br/>
