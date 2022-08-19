@@ -10,11 +10,10 @@
     <img width="100%" id="image"></img>
 	<script>
 	function help() {
-      document.write("your task is to create a user and gain the access of RTDB, use hint() to know more...<br/>")
+      return "your task is to create a user and gain the access of RTDB, use hint() to know more...<br/>"
   }
   function hint() {
-    document.write("get the firebase project's informations from the webpage.<br/>")
-	  document.write("i will send the email for next task.<br/>")
+    return "get the firebase project's informations from the webpage.<br/>i will send the email for next task.<br/>"
   }
   function enterKeyPressed(event) {
 		if (event.keyCode == 13) {
