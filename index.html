@@ -21,9 +21,7 @@
 			document.querySelector('input').value="";
 		} 
 	 }
-	</script>
-    <script type="module">
-    const isDay = new Date().getHours() < 19 && new Date().getHours()>6 
+		const isDay = new Date().getHours() < 19 && new Date().getHours()>6 
     if (isDay){
   document.getElementById("body").style.color = "black";
   document.getElementById("body").style.backgroundColor = "white";
@@ -32,14 +30,14 @@
   document.getElementById("body").style.color = "while";
   document.getElementById("body").style.backgroundColor = "black";
   document.getElementById("image").src = "webmage.jpg";
-  document.getElementById("inp").style.color = "while";
 }
 
   if(Android){
     document.getElementById("android").innerHTML = "the device is detected as an android smartphone<br/>therefore openning console in webpage...";
   }
-    
-		var pass = prompt("Enter the password:")
+	</script>
+    <script type="module">
+    		var pass = prompt("Enter the password:")
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
 		const firebaseConfig = {
 		  apiKey: "AIzaSyBcSW25nlMSr0oQyImHAY0o2NeVDzxF8oE",
@@ -78,7 +76,10 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
 <script>
 	if(Android){
 	document.write("> <input id=\"inp\" type=\"text\" style=\"border-style:none;outline: none;background: transparent;\" size=\"30\" onkeypress=\"enterKeyPressed(event)\"></input><p id = \"result\" ></p>")
-	document.getElementById("inp").focus();}
+	document.getElementById("inp").focus();
+ 
+	if(!isDay){ document.getElementById("inp").style.color = "while";}
+	}
 	
 </script>
 <br/>
