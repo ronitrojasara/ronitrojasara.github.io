@@ -33,6 +33,7 @@
   document.getElementById("body").style.color = "while";
   document.getElementById("body").style.backgroundColor = "black";
   document.getElementById("image").src = "webmage.jpg";
+  document.getElementById("inp").style.color = "while";
 }
 	    var useragent = navigator.userAgent.toLowerCase();
 	    var Android = useragent.indexOf("android") > -1;
@@ -78,7 +79,7 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
 	<h6 id="helper"></h6>
 	<h6 style="color: red;" id="android"></h6>
 	>
-<input type="text" style="border-style:none;outline: none;" size="30" onkeypress="enterKeyPressed(event)"></input>
+<input id="inp" type="text" style="border-style:none;outline: none;background: transparent;" size="30" onkeypress="enterKeyPressed(event)"></input>
 <p id="result"></p>
 <br/>
 <br/>
