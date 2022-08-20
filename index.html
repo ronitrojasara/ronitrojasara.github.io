@@ -12,14 +12,14 @@
 	    var useragent = navigator.userAgent.toLowerCase();
 	    var Android = useragent.indexOf("android") > -1;
 	function help() {
-      return "Work is in progress... \n some additional functions: \n console():open new javascript console in newtab \n dark():theme \n light():theme"
+      return "Work is in progress...<br/>some additional functions:<br/>console():open new javascript console in newtab<br/>dark():theme<br/>light():theme"
   }
-		const isDay = new Date().getHours() < 19 && new Date().getHours()>6 ;
+		var isDay = new Date().getHours() < 19 && new Date().getHours()>6 ;
 		function dark() {
-			isDay=false
+			isDay=false;
 		}
 		function light() {
-			isDay=true
+			isDay=true;
 		}
 		function console() {
 			window.open("console.html","_blank")
