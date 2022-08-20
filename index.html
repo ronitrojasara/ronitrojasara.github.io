@@ -12,14 +12,20 @@
 	    var useragent = navigator.userAgent.toLowerCase();
 	    var Android = useragent.indexOf("android") > -1;
 	function help() {
-      return "Work is in progress...<br/>some additional functions:<br/>console():open new javascript console in newtab<br/>dark():theme<br/>light():theme"
+      return "some additional functions:<br/>console():open new javascript console in newtab<br/>dark():theme<br/>light():theme<br/>Work is in progress..."
   }
-		var isDay = new Date().getHours() < 19 && new Date().getHours()>6 ;
+		const isDay = new Date().getHours() < 19 && new Date().getHours()>6 ;
 		function dark() {
-			isDay=false;
+			document.getElementById("body").style.color = "while";
+  document.getElementById("body").style.backgroundColor = "black";
+  document.getElementById("image").src = "webmage.jpg";
+			document.getElementById("inp").style.color = "white";
 		}
 		function light() {
-			isDay=true;
+			document.getElementById("body").style.color = "black";
+  document.getElementById("body").style.backgroundColor = "white";
+  document.getElementById("image").src = "webmage.svg";
+			document.getElementById("inp").style.color = "black";
 		}
 		function console() {
 			window.open("console.html","_blank")
