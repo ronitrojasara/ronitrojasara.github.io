@@ -12,8 +12,9 @@
 	    var useragent = navigator.userAgent.toLowerCase();
 	    var Android = useragent.indexOf("android") > -1;
 	function help() {
-      return "Work is in progress...\nsome additional functions:\nconsole():open new javascript console in newtab\ndark():theme\nlight():theme"
+      return "Work is in progress... \n some additional functions: \n console():open new javascript console in newtab \n dark():theme \n light():theme"
   }
+		const isDay = new Date().getHours() < 19 && new Date().getHours()>6 ;
 		function dark() {
 			isDay=false
 		}
@@ -31,7 +32,7 @@
 			document.querySelector('input').value="";
 		} 
 	 }
-		const isDay = new Date().getHours() < 19 && new Date().getHours()>6 
+		
     if (isDay){
   document.getElementById("body").style.color = "black";
   document.getElementById("body").style.backgroundColor = "white";
