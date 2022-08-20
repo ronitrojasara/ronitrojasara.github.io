@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>console</title>
+</head>
+<body style="font-family: 'Courier New', monospace;color: white;background:black">
+    <p id="history"></p>
+    >
+    <script>
+        var pretext="";
+    function enterKeyPressed(event) {
+		if (event.keyCode == 13) {
+			const val = document.querySelector('input').value;
+			// document.getElementById("result").innerHTML = eval(val);
+			document.querySelector('input').value="";
+            pretext = pretext + "<br/>> "+val+"<br/>"+eval(val)+"<br/>";
+             document.getElementById("history").innerHTML = pretext
+            //  document.getElementById("result").innerHTML = "";
+		} 
+	 }</script>
+     <!-- <pre></pre> -->
+    <input type="text" style="font-size: medium;font-family: 'Courier New', monospace;border-style:none;outline: none;background: transparent;color: white;" size="30" onkeypress="enterKeyPressed(event)"></input>	
+    
+</body>
+</html>
