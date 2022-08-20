@@ -12,8 +12,18 @@
 	    var useragent = navigator.userAgent.toLowerCase();
 	    var Android = useragent.indexOf("android") > -1;
 	function help() {
-      return "Work is in progress..."
+      return "Work is in progress...\nsome additional functions:\nconsole():open new javascript console in newtab\ndark():theme\nlight():theme"
   }
+		function dark() {
+			isDay=false
+		}
+		function light() {
+			isDay=true
+		}
+		function console() {
+			window.open("console.html","_blank")
+			return "openning new javascript console in newtab..."
+		}
   function enterKeyPressed(event) {
 		if (event.keyCode == 13) {
 			const val = document.querySelector('input').value;
