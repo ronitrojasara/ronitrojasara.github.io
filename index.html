@@ -82,15 +82,15 @@ signInWithEmailAndPassword(auth, "ronitrojasara@outlook.com", pass)
     document.getElementById("door").innerHTML = "root";
   })
   .catch((error) => {
-    document.getElementById("door").innerHTML = "authentication failed!<br/> access is denied.";
+    document.getElementById("door").innerHTML = "authentication failed!<br/> access denied.";
     document.getElementById("helper").innerHTML = "open the console and use the help() function to know more...";
     const errorCode = error.code;
     const errorMessage = error.message;
   });
 	</script>
-    <h1 style="color: red;" id="door">
+    <h2 style="color: red;" id="door">
         :)
-    </h1>
+    </h2>
 	<h6 id="helper"></h6>
 	<h6 style="color: red;" id="android"></h6>
 <script>
