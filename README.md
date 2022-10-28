@@ -1,2 +1,1 @@
-# ronitrojasara.github.io
-## Contribute any thing, quick tools blogs, notes, etc. 
+## You can add any thing, quick tools, blogs, notes, etc. 
