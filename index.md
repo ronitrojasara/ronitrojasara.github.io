@@ -1,4 +1,4 @@
-# 🐱 work in progress 🏗
+# 🐱 WORK IN PROGRESS 🏗
 # [Home](https://ronitrojasara.github.io/) [Explore](https://ronitrojasara.github.io/projects/)
 ![neko](https://ronitrojasara.github.io/webmage.svg)
 
