@@ -3,5 +3,5 @@ plugins:
 relative_links:
   enabled: true
   collections: true
-title: <your title>
+title: Home
 markdown: GFM
