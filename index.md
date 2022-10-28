@@ -1,10 +1,9 @@
-# COMMING SOON
+# 🐱 COMMING SOON
 
 ![neko](https://ronitrojasara.github.io/webmage.svg)
 
-get
-[***Source***](https://github.com/ronitrojasara/ronitrojasara.github.io)
-form Github
+[***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io)
+on Github 🐱
 
 ___
 
