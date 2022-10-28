@@ -4,4 +4,4 @@ relative_links:
   enabled: true
   collections: true
 title: <your title>
-# markdown: GFM
+markdown: GFM
