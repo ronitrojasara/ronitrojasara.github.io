@@ -3,5 +3,5 @@ plugins:
 relative_links:
   enabled: true
   collections: true
-title: ronitrojasara
+title: <your title>
 markdown: GFM
