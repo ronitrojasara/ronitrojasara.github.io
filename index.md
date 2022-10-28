@@ -3,7 +3,7 @@
 ![neko](https://ronitrojasara.github.io/webmage.svg)
 
 [***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io)
-on Github 🐱
+on Github
 
 ___
 
