@@ -5,4 +5,3 @@ relative_links:
   collections: true
 title: Home
 markdown: GFM
-background-image: url('{{ site.baseurl }}/webmage.svg');
