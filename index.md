@@ -6,6 +6,10 @@ title: Home
 🐱 WORK IN PROGRESS 🏗
 </mark>
 </h6>
+<style>
+body {
+background-image: url(’{{ site.baseurl }}/assets/images/bground.jpg’);
+}</style>
 
 # [Home](https://ronitrojasara.github.io/) [Explore](https://ronitrojasara.github.io/projects/)
 ![neko](https://ronitrojasara.github.io/webmage.svg)
