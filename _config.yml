@@ -5,3 +5,5 @@ relative_links:
   collections: true
 title: Home
 markdown: GFM
+url: "https://ronitrojasara.github.io/"
+background-image: url('/webmage.svg')
