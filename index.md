@@ -1,11 +1,11 @@
 ---
 title: Home
 ---
-### [Explore](https://ronitrojasara.github.io/posts/)
-![neko](https://ronitrojasara.github.io/webmage.svg)
-
 [***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io)
 on Github
+![neko](https://ronitrojasara.github.io/webmage.svg)
+
+### [Explore](https://ronitrojasara.github.io/posts/)
 
 ___
 
