@@ -6,4 +6,4 @@ relative_links:
 title: Home
 markdown: GFM
 url: "https://ronitrojasara.github.io/"
-background-image: url('/webmage.svg')
+background-image: url('webmage.svg')
