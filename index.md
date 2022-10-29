@@ -1,7 +1,7 @@
 ---
 title: Home
 ---
-## [Home](https://ronitrojasara.github.io/) [Explore](https://ronitrojasara.github.io/posts/)
+### [Home](https://ronitrojasara.github.io/) [Explore](https://ronitrojasara.github.io/posts/)
 ![neko](https://ronitrojasara.github.io/webmage.svg)
 
 [***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io)
