@@ -2,6 +2,10 @@
 title: Hello, World!
 published-date: 28.11.2022
 ---
+<form>
+ <input type="button" value="⬅" onclick="history.back()">
+</form>
+
 # 👋😃 Hello, World!
 Javascript
 ```javascript
