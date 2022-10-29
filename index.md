@@ -7,12 +7,6 @@ title: Home
 </mark>
 </h6>
 
-<head>
-<style>
-    body { background-image: url(’{{ site.baseurl }}/assets/images/bground.jpg’); }
-</style>
-</head>
-
 # [Home](https://ronitrojasara.github.io/) [Explore](https://ronitrojasara.github.io/projects/)
 ![neko](https://ronitrojasara.github.io/webmage.svg)
 
