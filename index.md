@@ -12,12 +12,6 @@ on Github
 
 ___
 
-<style type="text/css">
-body{
-    background-color:blue;
-    }
-</style>
-
 > [Whatsapp](https://wa.me/+919313603306)
 
 > [Instagram](https://www.instagram.com/_8023672/)
