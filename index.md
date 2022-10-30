@@ -1,6 +1,8 @@
 ---
 title: Home
 ---
+<link rel="stylesheet" href="bg.css">
+
 [***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io)
 on Github
 ![neko](https://ronitrojasara.github.io/webmage.svg)
