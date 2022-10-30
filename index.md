@@ -7,7 +7,7 @@ on Github
 
 <!-- ### [Explore](https://ronitrojasara.github.io/posts/) -->
 <form>
- <a href="https://ronitrojasara.github.io/posts/"><input type="button" value="Explore"></a>
+ <a href="https://ronitrojasara.github.io/pages/"><input type="button" value="Explore"></a>
 </form>
 
 ___
