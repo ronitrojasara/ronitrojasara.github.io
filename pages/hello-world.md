@@ -6,7 +6,7 @@ published-date: 28.11.2022
  <input type="button" value="⬅ Go Back" onclick="history.back()">
 </form>
 
-# 👋😃 Hello, World!
+## 👋😃 Hello, World!
 Javascript
 ```javascript
 console.log('Hello World');
