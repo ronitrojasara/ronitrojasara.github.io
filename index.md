@@ -12,7 +12,7 @@ on Github
 
 ___
 
-<style>
+<style type="text/css">
 body{
     background-color:blue;
     }
