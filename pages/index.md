@@ -1,6 +1,6 @@
 ---
 title: pages
-url: pages
+url: pages/index
 ---
 <form>
  <input type="button" value="⬅ Go Back" onclick="history.back()">
