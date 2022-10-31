@@ -3,7 +3,7 @@ title: Home
 ---
 # [ronitrojasara.github.io](https://ronitrojasara.github.io/)
 
-[***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io) on Github
+<p style="margin-bottom: 0px;font-size:2vw"><a href="https://github.com/ronitrojasara/ronitrojasara.github.io"><em><strong>View / Contribute</strong></em></a> on Github</p>
 
 ![neko](https://ronitrojasara.github.io/webmage.svg)
 
