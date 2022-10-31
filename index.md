@@ -1,7 +1,7 @@
 ---
 title: Home
 ---
-# [ronitrojasara.github.io](https://ronitrojasara.github.io/)
+## [ronitrojasara.github.io](https://ronitrojasara.github.io/)
 
 [***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io)
 on Github
