@@ -15,6 +15,16 @@
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="{{ page.title }}">
 <script type="application/ld+json">
+<script>
+    function myFunction() {
+       var element = document.body;
+       dark=element.classList.toggle("dark-mode");
+       if(dark){document.documentElement.setAttribute('data-theme', 'dark');}else{
+        document.documentElement.setAttribute('data-theme', 'light');
+       }
+    
+    }
+    </script>
 {"@context":"https://schema.org","@type":"WebSite","headline":"{{ page.title }}","name":"ronitrojasara.github.io","url":"https://ronitrojasara.github.io{{ page.url }}"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -44,7 +54,19 @@
         *{
       font-family: monospace;
     }
+         .dark-mode {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  color-scheme: dark;
+}
     </style>
+      <div style="display: flex;justify-content: space-between;padding: 16px;">
+    <form>
+        <input type="button" value="⬅ Go Back" onclick="history.back()">
+       </form>
+    <form>
+        <input type="button" value="toggle darkness" onclick="myFunction()" style="color-scheme:dark;">
+       </form></div>
     <div class="container-lg px-3 my-5 markdown-body">
 {{ content }}
     </div>
