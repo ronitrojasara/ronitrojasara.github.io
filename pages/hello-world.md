@@ -3,9 +3,6 @@ title: Hello, World!
 published-date: 28.11.2022
 url: pages/hello-world
 ---
-<form>
- <input type="button" value="⬅ Go Back" onclick="history.back()">
-</form>
 
 ### 👋😃 Hello, World!
 Javascript
