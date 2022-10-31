@@ -12,7 +12,7 @@ title: Home
 <form>
  <a href="https://ronitrojasara.github.io/pages/"><input type="button" value="Explore"></a>
 </form>
-
+<div style="background-color:azure">
 ___
 
 > [Whatsapp](https://wa.me/+919313603306)
@@ -22,3 +22,4 @@ ___
 > **Contact**
 > - ronitrojasra@gmail.com
 > - +919313603306
+</div>
