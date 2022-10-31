@@ -1,10 +1,10 @@
 ---
 title: Home
 ---
-# [ronitrojasara.github.io](https://ronitrojasara.github.io/)
+# [ronitrojasara.github.io](https://ronitrojasara.github.io/) {#wtitle}
 
-[***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io)
-on Github
+[***View / Contribute***](https://github.com/ronitrojasara/ronitrojasara.github.io) on Github {#lnote}
+
 ![neko](https://ronitrojasara.github.io/webmage.svg)
 
 <!-- ### [Explore](https://ronitrojasara.github.io/posts/) -->
