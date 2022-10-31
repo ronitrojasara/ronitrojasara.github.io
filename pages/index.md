@@ -2,7 +2,7 @@
 title: pages
 url: pages/index
 ---
-{% include dark.js %}
+{% include /dark.js %}
 
 # 1234
 
