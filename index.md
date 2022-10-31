@@ -20,7 +20,7 @@ title: Home
 <blockquote style="border-left: 0.25em solid rgb(68, 77, 86);">
 <p><a href="https://www.instagram.com/_8023672/" style="color:rgb(96, 153, 224);">Instagram</a></p>
 </blockquote>
-<blockquote style="border-left: 0.25em solid rgb(68, 77, 86);">
+<blockquote style="border-left: 0.25em solid rgb(68, 77, 86);color: rgb(118, 132, 145);">
 <p><strong>Contact</strong></p>
 <ul>
 <li><a href="mailto:ronitrojasra@gmail.com" style="color:rgb(96, 153, 224);">ronitrojasra@gmail.com</a></li>
