@@ -7,7 +7,7 @@ url: pages/hello-world
  <input type="button" value="⬅ Go Back" onclick="history.back()">
 </form>
 
-## 👋😃 Hello, World!
+### 👋😃 Hello, World!
 Javascript
 ```javascript
 console.log('Hello World');
