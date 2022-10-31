@@ -12,7 +12,7 @@ title: Home
 <form>
  <a href="https://ronitrojasara.github.io/pages/"><input type="button" value="Explore"></a>
 </form>
-<div style="background-color:rgb(245, 245, 255)">
+<div style="background-color:rgb(22, 27, 33);">
  
 ___
 
