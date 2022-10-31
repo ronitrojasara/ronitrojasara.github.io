@@ -1,7 +1,7 @@
 ---
 title: Home
 ---
-<h1 style="font-size:7vw !important;font-weight: 1000 !important;margin-top: 0px !important;margin-bottom: 0px !important;"><a href="https://ronitrojasara.github.io/">ronitrojasara.github.io</a></h1>
+<h1 style="font-size:6vw !important;font-weight: 1000 !important;margin-top: 0px !important;margin-bottom: 0px !important;"><a href="https://ronitrojasara.github.io/">ronitrojasara.github.io</a></h1>
 <p style="margin-bottom: 0px;font-size:2vw"><a href="https://github.com/ronitrojasara/ronitrojasara.github.io"><em><strong>View / Contribute</strong></em></a> on Github</p>
 
 ![neko](https://ronitrojasara.github.io/webmage.svg)
