@@ -13,6 +13,22 @@ title: Home
  <a href="https://ronitrojasara.github.io/pages/"><input type="button" value="Explore"></a>
 </form>
 <div style="background-color:rgb(44, 51, 59);">
+<hr style="background-color: rgb(68, 77, 86);">
+<blockquote style="border-left: 0.25em solid rgb(68, 77, 86);">
+<p><a href="https://wa.me/+919313603306" style="color:rgb(96, 153, 224);">Whatsapp</a></p>
+</blockquote>
+<blockquote style="border-left: 0.25em solid rgb(68, 77, 86);">
+<p><a href="https://www.instagram.com/_8023672/" style="color:rgb(96, 153, 224);">Instagram</a></p>
+</blockquote>
+<blockquote style="border-left: 0.25em solid rgb(68, 77, 86);">
+<p><strong>Contact</strong></p>
+<ul>
+<li><a href="mailto:ronitrojasra@gmail.com" style="color:rgb(96, 153, 224);">ronitrojasra@gmail.com</a></li>
+<li>+919313603306</li>
+</ul>
+</blockquote>
+</div>
+<!-- <div style="background-color:rgb(44, 51, 59);">
  
 ___
 
@@ -23,4 +39,4 @@ ___
 > **Contact**
 > - ronitrojasra@gmail.com
 > - +919313603306
-</div>
+</div> -->
