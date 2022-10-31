@@ -4,7 +4,7 @@ url: pages/index
 ---
 {% include dark.js %}
 
-# 123
+# 1234
 
 <form>
  <input type="button" value="⬅ Go Back" onclick="history.back()">
