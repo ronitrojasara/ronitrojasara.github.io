@@ -1,5 +1,5 @@
 ---
-title: pages
+title: index
 url: pages/index
 ---
 
