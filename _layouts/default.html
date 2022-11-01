@@ -22,8 +22,16 @@
     function myFunction() {
        var element = document.body;
        dark=element.classList.toggle("dark-mode");
-       if(dark){document.documentElement.setAttribute('data-theme', 'dark');}else{
+       if(dark){document.documentElement.setAttribute('data-theme', 'dark');
+               as = document.getElementsByTagName("a");
+     for (let i = 0; i < as.length; i++) {
+    as[i].style.color = "aqua";
+  }}else{
         document.documentElement.setAttribute('data-theme', 'light');
+      as = document.getElementsByTagName("a");
+     for (let i = 0; i < as.length; i++) {
+    as[i].style.color = "#0366d6";
+  }
        }
     
     }
@@ -66,7 +74,9 @@
             .highlighter-rouge{ 
         color: black !important;
     }
-
+a{
+    color: aqua ;
+}
     </style>
       <div style="display: flex;justify-content: space-between;padding: 16px 16px 0px 16px;">
     <form>
