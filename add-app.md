@@ -1,5 +1,5 @@
 ## Install the app for better reading experience.
-### how app will look after installing
+### How the app will look after installation.
 #### splash screen
 ![splash screen](https://ronitrojasara.github.io/splash.jpg) 
 #### Home screen
