@@ -21,12 +21,6 @@ Python
 ```python
 print("Hello, World!")
 ```
-Css
-```css
-h1 {
-	color: Green;
-}
-```
 Php
 ```php
 <?php
@@ -139,10 +133,6 @@ HTML
  	<h1>Hello World</h1>
 </body>
 </html>
-```
-Json
-```json
-{"grinning":"hello world"}
 ```
 Markdown
 ```markdown
