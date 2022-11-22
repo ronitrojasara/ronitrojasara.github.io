@@ -1,6 +1,2 @@
 [index]
 0 - index
-1 - cheater 1 (1/2): History of Computers
-2 - cheater 1 (2/2): History of Computers
-3 - cheaper 2: Introduction to Digital Electronics
-4 - para
