@@ -9,6 +9,11 @@
       "type": "image/jpeg"
     },
     {
+      "src": "https://ronitrojasara.github.io/images/neko.jpg",
+      "sizes": "144x144",
+      "type": "image/jpeg"
+    },
+    {
       "src": "https://ronitrojasara.github.io/images/460x460/neko.jpg",
       "sizes": "460x460",
       "type": "image/jpeg"
