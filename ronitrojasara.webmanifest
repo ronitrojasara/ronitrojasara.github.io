@@ -4,17 +4,17 @@
   "description": "personal blogging site,it is open source",
   "icons": [
     {
-      "src": "https://avatars.githubusercontent.com/u/84675961",
+      "src": "https://ronitrojasara.github.io/images/32x32/neko.jpg",
       "sizes": "32x32",
       "type": "image/jpeg"
     },
     {
-      "src": "https://avatars.githubusercontent.com/u/84675961",
+      "src": "https://ronitrojasara.github.io/images/460x460/neko.jpg",
       "sizes": "460x460",
       "type": "image/jpeg"
     },
     {     
-        "src": "https://avatars.githubusercontent.com/u/84675961",
+        "src": "https://ronitrojasara.github.io/images/512x512/neko.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
