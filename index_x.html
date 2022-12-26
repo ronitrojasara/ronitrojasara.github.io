@@ -18,21 +18,7 @@
   if ('serviceWorker' in navigator) {
    navigator.serviceWorker.register("/service-worker.js");
 }
-  let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        deferredPrompt = e;
-    });
-
-    const installApp = document.getElementById('installApp');
-    installApp.addEventListener('click', async () => {
-        if (deferredPrompt !== null) {
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                deferredPrompt = null;
-            }
-        }
-    });</script>
+</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","headline":"Home","name":"ronitrojasara.github.io","url":"https://ronitrojasara.github.io/"}</script>
 <!-- End Jekyll SEO tag -->
@@ -198,8 +184,7 @@
       <p></p><div style="display:flex ;justify-content:center">
    <p>Get notified, <a style="color: white;font-weight:1000" href="mailto:ronitrojasara@gmail.com?subject=subscribe&body=🔔%20Notify%20me%20of%20your%20new%20blog.">Subscribe</a></p>
 </div><div style="display:flex ;justify-content:center">
-<!--     <a href="https://ronitrojasara.github.io/add-app" style="color: white;font-weight:1000">install app</a> -->
-  <button id="installApp">Install</button>
+    <a href="https://ronitrojasara.github.io/add-app" style="color: white;font-weight:1000">install app</a>
   </div>
   <div style="display: flex;justify-content: center;"><svg onclick="location.href='https://github.com/ronitrojasara';" style="margin-left: 2%;" class="fa"
       xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
