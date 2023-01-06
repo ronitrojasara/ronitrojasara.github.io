@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        // import { getAuth } from "firebase/auth";
+        import { getAuth,GoogleAuthProvider,signInWithPopup ,signInWithRedirect,getRedirectResult} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCH69fYv-40lt2Z7Ll5Krsphnj1x4z9-Zw",
+          authDomain: "crud-53560.firebaseapp.com",
+          databaseURL: "https://crud-53560-default-rtdb.firebaseio.com",
+          projectId: "crud-53560",
+          storageBucket: "crud-53560.appspot.com",
+          messagingSenderId: "163520428614",
+          appId: "1:163520428614:web:294c0527608e501763a847"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+        provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+        auth.languageCode = 'it';
+
+        provider.setCustomParameters({
+  'login_hint': 'user@example.com'
+});
+function SWR() {
+  signInWithRedirect(auth, provider);
+}
+function GRR() {
+getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+
+    // The signed-in user info.
+    const user = result.user;
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+}
+
+
+        document.getElementById("myBtn").addEventListener("click", SWP);
+        document.getElementById("myBtn1").addEventListener("click", SWR);
+        document.getElementById("myBtn2").addEventListener("click", GRR);
+        function SWP() {
+          signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+        }
+        
+      </script>
+
+</head>
+<body>
+    <button id="myBtn">button</button>
+    <button id="myBtn1">button</button>
+    <button id="myBtn2">button</button>
+</body>
+</html>
