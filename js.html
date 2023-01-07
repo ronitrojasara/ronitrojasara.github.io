@@ -14,7 +14,7 @@
   
                 for(var prop in obj) {
                     if(typeof obj[prop] == 'string') {
-                        string+= prop + ': ' + obj[prop]+'; </br>';
+                        string+= prop + ': ' + obj[prop];
                     }
                     else {
                         string+= prop + ': { </br>' + print(obj[prop]) + '}';
