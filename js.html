@@ -8,12 +8,26 @@
     <input type="button" value="Sign Up" onClick="Advanced.signUp(document.getElementById('email').value,document.getElementById('password').value)" />
 <input type="button" value="Continue with Google" onClick="Advanced.googleSignInLaunch()" />
     <p id="AdvanceListener"></p>
-<!-- <script type="text/javascript">
-    function showAndroidToast(toast) {
-        Android.showToast(toast);
-    }
-    function showAlert() { alert('Hello! I am an alert box!');}
-</script> -->
+<script type="text/javascript">
+                var printObj = function(obj) {
+                var string = '';
+  
+                for(var prop in obj) {
+                    if(typeof obj[prop] == 'string') {
+                        string+= prop + ': ' + obj[prop]+'; </br>';
+                    }
+                    else {
+                        string+= prop + ': { </br>' + print(obj[prop]) + '}';
+                    }
+                }
+  
+                return string;
+            }
+//     function showAndroidToast(toast) {
+//         Android.showToast(toast);
+//     }
+//     function showAlert() { alert('Hello! I am an alert box!');}
+</script>
     <input type="button" value="Sign Out" onClick="Advanced.SignOut()" />
 </body>
 </html>
