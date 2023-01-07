@@ -14,10 +14,10 @@
   
                 for(var prop in obj) {
                     if(typeof obj[prop] == 'string') {
-                        string+= prop + ': ' + obj[prop];
+                        string+= prop + ': ' + obj[prop]+ '\n' ;
                     }
                     else {
-                        string+= prop + ': { </br>' + print(obj[prop]) + '}';
+                        string+= prop + '\n' + print(obj[prop]);
                     }
                 }
   
