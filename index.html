@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Ronit Rojasara</title>
     <style>
-        
+        .error-icon {
+            color: red; /* Set the icon color to red */
+            font-size: 24px; /* Adjust the font size as needed */
+            margin-right: 5px; /* Add spacing to the right of the icon */
+        }
         body {
             font-family: 'Share Tech Mono', monospace;
             text-align: center;
             background-color: #f0f0f0;
         }
-        
-.text:hover {
-    color: red; /* Change the color to your desired hover color */
-}
+
+        .text:hover {
+            color: red;
+            /* Change the color to your desired hover color */
+        }
+
         .text {
             -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    display: inline-block;
-    transition: color 0.3s;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: inline-block;
+            transition: color 0.3s;
             font-size: 36px;
             margin-top: 20vh;
         }
     </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
 </head>
+
 <body>
+    <p style="text-align: left;">
+        <span class="error-icon">&#9888;</span> <!-- Unicode character for an exclamation mark -->
+        An error occurred.
+    </p>
     <div class="text">ronitrojasara</div>
+    <div class="image-container">
+        <img src="image.svg" alt="Embedded SVG">
+
+    </div>
+    
 </body>
+
 </html>
- 
