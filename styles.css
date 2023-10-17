@@ -1,9 +1,6 @@
 .image-container {
     perspective: 1000px;
 }
-img:hover{
-    fill:red;
-}
 img {
 user-select: none;
 -moz-user-select: none;
