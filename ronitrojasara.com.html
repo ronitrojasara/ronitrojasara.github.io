@@ -1,57 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon</title>
-  <style>
-    body, html {
-      margin: 0;
-      overflow: hidden;
-    }
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Image Example</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevents scrolling */
+        }
 
-    canvas {
-      display: block;
-    }
-  </style>
+        img {
+            width: 100vw; /* 100% of the viewport width */
+            height: 100vh; /* 100% of the viewport height */
+            image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+        }
+    </style>
 </head>
 <body>
-  <canvas id="randomPixelsCanvas"></canvas>
-  <script>
-    
-    // Function to generate a random boolean (true or false)
-    function getRandomBoolean() {
-      return Math.random() < 0.5;
-    }
+    <img src="pixels.bmp" alt="Full Screen Image">
 
-    // Function to change every pixel randomly to white or black
-    function changePixels() {
-      const canvas = document.getElementById('randomPixelsCanvas');
-      const ctx = canvas.getContext('2d');
 
-      // Set canvas dimensions to match window dimensions
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      const imageData = ctx.createImageData(canvas.width, canvas.height);
-
-      for (let i = 0; i < imageData.data.length; i += 4) {
-        const isWhite = getRandomBoolean();
-        
-        // Set the pixel to white or black
-        imageData.data[i] = isWhite ? 255 : 0;     // Red
-        imageData.data[i + 1] = isWhite ? 255 : 0; // Green
-        imageData.data[i + 2] = isWhite ? 255 : 0; // Blue
-        imageData.data[i + 3] = 255;               // Alpha (opacity)
-      }
-
-      ctx.putImageData(imageData, 0, 0);
-    }
-
-    // Call the function to change pixels when the page loads and when the window is resized
-    window.onload = changePixels;
-    window.onresize = changePixels;
-  </script>
-</body>
-</html>
-
+</body></html>
