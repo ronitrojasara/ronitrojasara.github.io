@@ -5,7 +5,14 @@
     <title>Full Screen Image Example</title>
     <style>
         body {
-            margin: 0;
+            
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+            background-color: black;
             overflow: hidden; /* Prevents scrolling */
         }
 
@@ -16,10 +23,14 @@
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
         }
+        .center-container {
+    text-align: center;
+    }
     </style>
 </head>
 <body>
-    <img src="01.png" alt="Full Screen Image">
-
-
+    <div class="center-container">
+        <img src="01.png" alt="Full Screen Image">
+    </div>
+    
 </body></html>
