@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Scheduler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #2E2E2E;
+            color: #FFFFFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .device {
+            background-color: #373737;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timer {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"], input[type="time"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #4A4A4A;
+            color: #FFFFFF;
+            border-radius: 4px;
+            margin-right: 10px;
+            flex: 1;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #2980b9;
+            color: #FFFFFF;
+            border-radius: 4px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        button:hover {
+            background-color: #1a5276;
+        }
+
+        .add-device {
+            background-color: #2980b9;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .add-device:hover {
+            background-color: #1a5276;
+        }
+
+        .delete-device {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #d9534f;
+            color: #FFFFFF;
+            border: none;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .delete-device:hover {
+            background-color: #c9302c;
+        }
+
+        .add-timer,
+        .delete-timer {
+            background-color: #27ae60;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px; /* Add margin here */
+        }
+
+        .add-timer:hover,
+        .delete-timer:hover {
+            background-color: #219c56;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="device">
+            <button class="delete-device" onclick="deleteDevice(this)"><i class="fas fa-trash-alt"></i></button>
+            <h2 contenteditable="true">Device 1</h2>
+            <div class="timer timer1">
+                <input type="text" placeholder="Timer Name" />
+                <input type="time" onchange="startTimer('timer1', this.value)" />
+                <button class="add-timer" onclick="addTimer('timer1')"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+
+        <!-- Repeat similar structure for Device 2 and Device 3 -->
+
+        <div class="add-device" onclick="addDevice()"><i class="fas fa-plus"></i> Add Device</div>
+    </div>
+
+    <script>
+        let deviceCount = 3;
+
+        function addDevice() {
+            deviceCount++;
+            const container = document.querySelector('.container');
+
+            const newDevice = document.createElement('div');
+            newDevice.classList.add('device');
+
+            newDevice.innerHTML = `
+                <button class="delete-device" onclick="deleteDevice(this)"><i class="fas fa-trash-alt"></i></button>
+                <h2 contenteditable="true">Device ${deviceCount}</h2>
+                <div class="timer timer${deviceCount}">
+                    <input type="text" placeholder="Timer Name" />
+                    <input type="time" onchange="startTimer('timer${deviceCount}', this.value)" />
+                    <button class="add-timer" onclick="addTimer('timer${deviceCount}')"><i class="fas fa-plus"></i></button>
+                </div>
+            `;
+
+            container.insertBefore(newDevice, document.querySelector('.add-device'));
+        }
+
+        function deleteDevice(button) {
+            const device = button.parentElement;
+            device.remove();
+        }
+
+        function addTimer(timerClass) {
+            const timerContainer = document.querySelector(`.${timerClass}`);
+
+            const newTimer = document.createElement('div');
+            newTimer.classList.add('timer');
+
+            newTimer.innerHTML = `
+                <input type="text" placeholder="Timer Name" />
+                <input type="time" onchange="startTimer('${timerClass}', this.value)" />
+                <button class="delete-timer" onclick="deleteTimer(this)"><i class="fas fa-trash-alt"></i></button>
+            `;
+
+            timerContainer.parentNode.insertBefore(newTimer, timerContainer.nextSibling);
+        }
+
+        function deleteTimer(button) {
+            const timer = button.parentElement;
+            timer.remove();
+        }
+
+        function startTimer(timerClass, timeValue) {
+            const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+            // Use timerName and timeValue in your timer logic
+            alert(`Timer ${timerName} with time ${timeValue} started!`);
+        }
+    </script>
+</body>
+</html>
