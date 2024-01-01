@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2E2E2E;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #373737;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: #FFFFFF;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #1a5276;
+        }
+
+        .signup-link,
+        .forgot-password-link {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .signup-link a,
+        .forgot-password-link a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover,
+        .forgot-password-link a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-form,
+        .forgot-password-form {
+            display: none;
+        }
+
+        .login-link a{
+            color: #3498db;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" class="login-form">
+        <h2>Login</h2>
+        <label for="loginUsername">Email:</label>
+        <input type="text" id="loginUsername" name="loginUsername" required>
+
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+
+        <button type="submit">Login</button>
+
+        <div class="forgot-password-link">
+            <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+        </div>
+
+        <div class="signup-link">
+            Don't have an account? <a href="#" onclick="showSignup()">Sign up</a>
+        </div>
+    </form>
+
+    <form id="signupForm" class="signup-form">
+        <h2>Sign Up</h2>
+        <label for="signupUsername">Email:</label>
+        <input type="text" id="signupUsername" name="signupUsername" required>
+
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" name="signupPassword" required>
+
+        <button type="submit">Sign Up</button>
+
+        <div class="signup-link">
+            Already have an account? <a href="#" onclick="showLogin()">Login</a>
+        </div>
+    </form>
+
+    <form id="forgotPasswordForm" class="forgot-password-form">
+        <h2>Forgot Password</h2>
+        <label for="forgotPasswordEmail">Email:</label>
+        <input type="email" id="forgotPasswordEmail" name="forgotPasswordEmail" required>
+
+        <button type="submit">Reset Password</button>
+
+        <div class="login-link">
+            <a href="#" onclick="showLogin()">Back to Login</a>
+        </div>
+    </form>
+
+    <script>
+        function showSignup() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+        }
+
+        function showLogin() {
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+        }
+
+        function showForgotPassword() {
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
