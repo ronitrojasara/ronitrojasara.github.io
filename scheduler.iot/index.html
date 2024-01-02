@@ -110,43 +110,57 @@
 </head>
 <body>
     <div class="container">
-        <div class="device">
-            <button class="delete-device" onclick="deleteDevice(this)"><i class="fas fa-trash-alt"></i></button>
-            <h2 contenteditable="true">Device 1</h2>
-            <div class="timer timer1">
-                <input type="text" placeholder="Timer Name" />
-                <input type="time" onchange="startTimer('timer1', this.value)" />
-                <button class="add-timer" onclick="addTimer('timer1')"><i class="fas fa-plus"></i></button>
-            </div>
-        </div>
+        
 
         <!-- Repeat similar structure for Device 2 and Device 3 -->
 
         <div class="add-device" onclick="addDevice()"><i class="fas fa-plus"></i> Add Device</div>
     </div>
+    <script type="module">
+        import { } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js'
 
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyADJ6xDudtTyCyhhDyMQxzRRFUCDUxwMrw",
+          authDomain: "iot-scheduler.firebaseapp.com",
+          projectId: "iot-scheduler",
+          storageBucket: "iot-scheduler.appspot.com",
+          messagingSenderId: "721427813778",
+          appId: "1:721427813778:web:7ffa31ac399fb00a8a1d4b"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
     <script>
-        let deviceCount = 3;
+        let deviceCount = 0;
 
         function addDevice() {
-            deviceCount++;
-            const container = document.querySelector('.container');
+    deviceCount++;
+    const container = document.querySelector('.container');
 
-            const newDevice = document.createElement('div');
-            newDevice.classList.add('device');
+    const newDevice = document.createElement('div');
+    newDevice.classList.add('device');
 
-            newDevice.innerHTML = `
-                <button class="delete-device" onclick="deleteDevice(this)"><i class="fas fa-trash-alt"></i></button>
-                <h2 contenteditable="true">Device ${deviceCount}</h2>
-                <div class="timer timer${deviceCount}">
-                    <input type="text" placeholder="Timer Name" />
-                    <input type="time" onchange="startTimer('timer${deviceCount}', this.value)" />
-                    <button class="add-timer" onclick="addTimer('timer${deviceCount}')"><i class="fas fa-plus"></i></button>
-                </div>
-            `;
+    newDevice.innerHTML = `
+        <button class="delete-device" onclick="deleteDevice(this)"><i class="fas fa-trash-alt"></i></button>
+        <h2 contenteditable="true">Device ${deviceCount}</h2>
+        <div class="timer timer${deviceCount}">
+            <input type="text" placeholder="Timer Name" />
+            <input type="time" onchange="startTimer('timer${deviceCount}', this.value, 'start')" />
+            <input type="time" onchange="endTimer('timer${deviceCount}', this.value)" />
+            <button class="add-timer" onclick="addTimer('timer${deviceCount}')"><i class="fas fa-plus"></i></button>
+        </div>
+    `;
 
-            container.insertBefore(newDevice, document.querySelector('.add-device'));
-        }
+    container.insertBefore(newDevice, document.querySelector('.add-device'));
+}
+
 
         function deleteDevice(button) {
             const device = button.parentElement;
@@ -154,19 +168,27 @@
         }
 
         function addTimer(timerClass) {
-            const timerContainer = document.querySelector(`.${timerClass}`);
+    const timerContainer = document.querySelector(`.${timerClass}`);
 
-            const newTimer = document.createElement('div');
-            newTimer.classList.add('timer');
+    const newTimer = document.createElement('div');
+    newTimer.classList.add('timer');
 
-            newTimer.innerHTML = `
-                <input type="text" placeholder="Timer Name" />
-                <input type="time" onchange="startTimer('${timerClass}', this.value)" />
-                <button class="delete-timer" onclick="deleteTimer(this)"><i class="fas fa-trash-alt"></i></button>
-            `;
+    newTimer.innerHTML = `
+        <input type="text" placeholder="Timer Name" />
+        <input type="time" onchange="startTimer('${timerClass}', this.value, 'start')" />
+        <input type="time" onchange="endTimer('${timerClass}', this.value)" />
+        <button class="delete-timer" onclick="deleteTimer(this)"><i class="fas fa-trash-alt"></i></button>
+    `;
 
-            timerContainer.parentNode.insertBefore(newTimer, timerContainer.nextSibling);
-        }
+    timerContainer.parentNode.insertBefore(newTimer, timerContainer.nextSibling);
+}
+
+function endTimer(timerClass, timeValue) {
+    const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+    // Use timerName and timeValue in your timer end logic
+    alert(`Timer ${timerName} with end time ${timeValue} ended!`);
+}
+
 
         function deleteTimer(button) {
             const timer = button.parentElement;
