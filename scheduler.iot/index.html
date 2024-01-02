@@ -167,16 +167,16 @@
             device.remove();
         }
 
-        function addTimer(timerClass) {
+        function addTimer(timerClass, timerName) {
     const timerContainer = document.querySelector(`.${timerClass}`);
 
     const newTimer = document.createElement('div');
     newTimer.classList.add('timer');
 
     newTimer.innerHTML = `
-        <input type="text" placeholder="Timer Name" />
-        <input type="time" onchange="startTimer('${timerClass}', this.value, 'start')" />
-        <input type="time" onchange="endTimer('${timerClass}', this.value)" />
+        <input type="text" placeholder="Timer Name" value="${timerName || ''}" />
+        <input type="time" onchange="startTimer('${timerClass}', this.value, 'start', '${timerName}')" />
+        <input type="time" onchange="endTimer('${timerClass}', this.value, '${timerName}')" />
         <button class="delete-timer" onclick="deleteTimer(this)"><i class="fas fa-trash-alt"></i></button>
     `;
 
@@ -185,8 +185,14 @@
 
 function endTimer(timerClass, timeValue) {
     const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+    if (timerName === "") {
+        alert("Timer name cannot be empty. Please provide a name for the timer.");
+        return;
+    }else{
+        alert(`Timer ${timerName} with end time ${timeValue}`);
+    }
     // Use timerName and timeValue in your timer end logic
-    alert(`Timer ${timerName} with end time ${timeValue} ended!`);
+    
 }
 
 
@@ -197,8 +203,14 @@ function endTimer(timerClass, timeValue) {
 
         function startTimer(timerClass, timeValue) {
             const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+            if (timerName === "") {
+        alert("Timer name cannot be empty. Please provide a name for the timer.");
+        return;
+    }else{
+        alert(`Timer ${timerName} with start time ${timeValue}`);
+    }
             // Use timerName and timeValue in your timer logic
-            alert(`Timer ${timerName} with time ${timeValue} started!`);
+            
         }
     </script>
 </body>
