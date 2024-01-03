@@ -220,7 +220,7 @@
 
             const nameElement = newDevice.querySelector('h2');
             var PName = nameElement.textContent;
-            nameElement.addEventListener('input', function () {
+            nameElement.addEventListener('focusout', function () {
 
                 if (this.textContent == '' || null) {
                 } else {
@@ -239,7 +239,7 @@
             const timerInput = newDevice.querySelector('.timer input[type="text"]');
 
             var PTName = timerInput.value;
-            timerInput.addEventListener('input', function () {
+            timerInput.addEventListener('focusout', function () {
                 console.log(this.value)
                 if (this.value == '' || null) {
                     console.log("hi")
@@ -351,15 +351,13 @@
 
             var nameInput = newTimer.querySelector('input[type="text"]');
             var PTName = nameInput.value;
-            nameInput.addEventListener('input', function () {
-
+            nameInput.addEventListener('focusout', function () {
                 if (this.value == '' || null) {
                     console.log("error")
                 } else {
                     nameTimer = editTimerName(this, PTName, device);
                     PTName = nameTimer;
                 }
-
             });
 
             const StimePicker = newTimer.querySelector('.startTimer');
@@ -402,29 +400,47 @@
                 set(ref(database, `users/${uid}/${device}/${nameTimer}`), {
                     startTimer: "--:-- --",
                     endTimer: "--:-- --"
-                });
-                return nameTimer;
-            }
-            console.log(nameTimer, PTName)
+                }).then(() => {
+                    console.log("Data saved successfully!")
+                    // Data saved successfully!
 
-            const starCountRef = ref(database, `users/${uid}/${device}/${PTName}`);
-            console.log(`users/${uid}/${device}/${PTName}`)
-            get(starCountRef).then((snapshot) => {
-                if (snapshot.exists()) {
-                    set(ref(database, `users/${uid}/${device}/${nameTimer}`), snapshot.val());
-                    if (PTName != nameTimer) {
-                        remove(starCountRef)
+                })
+                    .catch((error) => {
+                        // The write failed...
+                        console.log("The write failed...", error)
+                    });
+            } else {
+                console.log(nameTimer, PTName)
+
+                const starCountRef = ref(database, `users/${uid}/${device}/${PTName}`);
+                // console.log(`users/${uid}/${device}/${PTName}`)
+                get(starCountRef).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        set(ref(database, `users/${uid}/${device}/${nameTimer}`), snapshot.val()).then(() => {
+                            console.log("Data saved successfully!")
+                            // Data saved successfully!
+                            if (PTName != nameTimer) {
+                                remove(starCountRef)
+                                console.log(`removed at users/${uid}/${device}/${PTName}`);
+                            }
+                        })
+                            .catch((error) => {
+                                // The write failed...
+                                console.log("The write failed...", error)
+                            });
+
+                    } else {
+                        console.log(`No data available at users/${uid}/${device}/${PTName}`);
                     }
-                } else {
-                    console.log("No data available");
-                }
-            }).catch((error) => {
-                console.error(error);
-            });
+                }).catch((error) => {
+                    console.error(error);
+                });
 
+
+            }
             return nameTimer;
-
         }
+
 
 
     </script>
