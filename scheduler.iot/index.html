@@ -145,6 +145,10 @@
         var uid = localStorage.getItem('userUid');
         var email = null;
         onAuthStateChanged(auth, (user) => {
+            if (user) {
+            } else {
+                window.location.href = 'https://ronitrojasara.github.io/scheduler.iot/login';
+            }
             uid = user.uid;
             email = user.email
 
@@ -153,10 +157,7 @@
 
             // Retrieve UID (for example, from localStorage)
             const storedUid = localStorage.getItem('userUid');
-            if (user) {
-            } else {
-                window.location.href = 'https://ronitrojasara.github.io/scheduler.iot/login';
-            }
+            
         });
 
         // Initialize Firebase
