@@ -36,6 +36,12 @@
             align-items: center;
         }
 
+        input[type="text"] {
+
+            margin-right: 10px;
+
+        }
+
         input[type="text"],
         input[type="time"] {
             padding: 10px;
@@ -46,6 +52,10 @@
             border-radius: 4px;
             margin-right: 10px;
             flex: 1;
+        }
+
+        .startTimer {
+            margin-right: 0px !important;
         }
 
         button {
@@ -101,8 +111,11 @@
             padding: 10px;
             border-radius: 4px;
             cursor: pointer;
-            margin: 0 5px;
             /* Add margin here */
+        }
+
+        .time-separator {
+            margin: 0 5px;
         }
 
         .add-timer:hover,
@@ -122,7 +135,7 @@
     </div>
 
     <script type="module">
-        import { getDatabase, ref, set, onValue, update, remove } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+        import { getDatabase, ref, set, onValue, update, remove, child, get } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
@@ -151,22 +164,16 @@
             }
             uid = user.uid;
             email = user.email
-
             // Store UID (for example, in localStorage)
             localStorage.setItem('userUid', uid);
 
             // Retrieve UID (for example, from localStorage)
             const storedUid = localStorage.getItem('userUid');
-            
+
         });
 
         // Initialize Firebase
 
-        const starCountRef = ref(database, `users/${uid}/`);
-        onValue(starCountRef, (snapshot) => {
-            const data = snapshot.val();
-            console.log(data)
-        });
 
         let deviceCount = 0;
         document.addEventListener('DOMContentLoaded', function () {
@@ -187,8 +194,9 @@
         <button class="delete-device"><i class="fas fa-trash-alt"></i></button>
         <h2 contenteditable="true">Device ${deviceCount}</h2>
         <div class="timer device${deviceCount}">
-            <input type="text" placeholder="Timer Name" />
+            <input type="text" placeholder="Timer Name" value="timer${deviceCount}"/>
             <input type="time" class="startTimer" />
+            <span class="time-separator">To</span>
             <input type="time"  class="endTimer"  />
             <button class="add-timer${deviceCount}"><i class="fas fa-plus"></i></button>
         </div>
@@ -207,19 +215,86 @@
 
             const AddTimer = newDevice.querySelector(`.add-timer${deviceCount}`);
             AddTimer.addEventListener('click', function () {
-                addTimer("device"+this.classList.value.charAt(9))
+                addTimer("device" + this.classList.value.charAt(9), '', nameElement.textContent)
             });
 
             const nameElement = newDevice.querySelector('h2');
+            var PName = nameElement.textContent;
             nameElement.addEventListener('input', function () {
-                editDeviceName(this);
+
+                if (this.textContent == '' || null) {
+                } else {
+                    PName = editDeviceName(this, PName);
+                }
+
+
             });
 
+            nameElement.addEventListener('keydown', function (event) {
+                // Prevent the Enter key from creating a new line
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                }
+            });
             const timerInput = newDevice.querySelector('.timer input[type="text"]');
+
+            var PTName = timerInput.value;
             timerInput.addEventListener('input', function () {
-                editTimerName(this);
+                console.log(this.value)
+                if (this.value == '' || null) {
+                    console.log("hi")
+                } else {
+                    const h2 = nameElement.textContent;
+                    PTName = editTimerName(this, PTName, h2);
+                }
+
+
             });
 
+            const StimePicker = newDevice.querySelector('.startTimer');
+            console.log(StimePicker)
+            StimePicker.addEventListener('input', (event) => {
+                StartTimer = event.target.value;
+                startTimer(timerInput.value, StartTimer, nameElement.textContent)
+            });
+
+            const EtimePicker = newDevice.querySelector('.endTimer');
+            console.log(EtimePicker)
+            EtimePicker.addEventListener('input', (event) => {
+                EndTimer = event.target.value;
+                endTimer(timerInput.value, EndTimer, nameElement.textContent)
+            });
+
+
+            function startTimer(timerName, timeValue, device) {
+                // const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+                if (timerName === "" || null) {
+                    alert("Timer name cannot be empty. Please provide a name for the timer.");
+                    return;
+                } else {
+                    update(ref(database, `users/${uid}/${nameElement.textContent}/${timerName}`), {
+                        startTimer: `${StartTimer}`
+                    });
+                    alert(`Timer ${timerName} with start time ${timeValue}`);
+                }
+                // Use timerName and timeValue in your timer logic
+
+            }
+
+            function endTimer(timerName, timeValue, device) {
+                // const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+                if (timerName === "" || null) {
+                    alert("Timer name cannot be empty. Please provide a name for the timer.");
+                    return;
+                } else {
+                    update(ref(database, `users/${uid}/${nameElement.textContent}/${timerName}`), {
+                        endTimer: `${EndTimer}`
+                    });
+                    alert(`Timer ${timerName} with end time ${timeValue}`);
+                }
+                // Use timerName and timeValue in your timer end logic
+
+            }
 
             set(ref(database, `users/${uid}/${nameElement.textContent}/timer${deviceCount}`), {
                 startTimer: "--:-- --",
@@ -227,15 +302,31 @@
             });
         }
 
-        function editDeviceName(element) {
+        function editDeviceName(element, PName) {
+
+
             // Implement the logic to edit device name here
-            console.log('Edited device name:', element.textContent);
+            const starCountRef = ref(database, `users/${uid}/${PName}`);
+            get(starCountRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    set(ref(database, `users/${uid}/${element.textContent}`), snapshot.val());
+                    if (PName != element.textContent) {
+                        remove(starCountRef)
+                    }
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+            return element.textContent;
         }
 
 
-        function addTimer(timerClass, timerName) {
+        function addTimer(timerClass, timerName, device) {
             var StartTimer = '';
             var EndTimer = '';
+            var nameTimer = '';
             const timerContainer = document.querySelector(`.${timerClass}`);
 
             const newTimer = document.createElement('div');
@@ -244,6 +335,7 @@
             newTimer.innerHTML = `
         <input type="text" placeholder="Timer Name" value="${timerName || ''}" />
         <input type="time" class="startTimer" />
+        <span class="time-separator">To</span>
         <input type="time" class="endTimer" />
         <button class="delete-timer"><i class="fas fa-trash-alt"></i></button>
         `;
@@ -252,76 +344,89 @@
 
             const deleteButton = newTimer.querySelector('.delete-timer');
             deleteButton.addEventListener('click', function () {
-                deleteTimer(this);
-
+                this.parentElement.remove();
+                console.log(`users/${uid}/${device}/${nameInput.value}`)
+                remove(ref(database, `users/${uid}/${device}/${nameInput.value}`));
             });
 
-            const nameInput = newTimer.querySelector('input[type="text"]');
+            var nameInput = newTimer.querySelector('input[type="text"]');
+            var PTName = nameInput.value;
             nameInput.addEventListener('input', function () {
-                editTimerName(this);
+
+                if (this.value == '' || null) {
+                    console.log("error")
+                } else {
+                    nameTimer = editTimerName(this, PTName, device);
+                    PTName = nameTimer;
+                }
 
             });
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const timePicker = document.querySelector('.startTimer');
+            const StimePicker = newTimer.querySelector('.startTimer');
+            console.log(StimePicker)
+            StimePicker.addEventListener('input', (event) => {
+                StartTimer = event.target.value;
+                // startTimer(nameInput.value, StartTimer)
+                if (nameInput.value === "" || null) {
+                    alert("Timer name cannot be empty. Please provide a name for the timer.");
+                    return;
+                } else {
+                    update(ref(database, `users/${uid}/${device}/${nameInput.value}`), {
+                        startTimer: `${StartTimer}`
+                    });
+                    alert(`Timer ${nameInput.value} with start time ${StartTimer}`);
+                }
 
-                // Add onChange listener to the time picker
-                timePicker.addEventListener('input', function () {
-                    // Callback function to handle the change
-                    StartTimer = this.value
+            });
+
+            const EtimePicker = newTimer.querySelector('.endTimer');
+            console.log(EtimePicker)
+            EtimePicker.addEventListener('input', (event) => {
+                EndTimer = event.target.value;
+                if (nameInput.value === "" || null) {
+                    alert("Timer name cannot be empty. Please provide a name for the timer.");
+                    return;
+                } else {
+                    update(ref(database, `users/${uid}/${device}/${nameInput.value}`), {
+                        endTimer: `${EndTimer}`
+                    });
+                    alert(`Timer ${nameInput.value} with start time ${EndTimer}`);
+                }
+
+            });
+        }
+
+        function editTimerName(element, PTName, device) {
+            var nameTimer = element.value;
+            if (PTName == '' || null) {
+                set(ref(database, `users/${uid}/${device}/${nameTimer}`), {
+                    startTimer: "--:-- --",
+                    endTimer: "--:-- --"
                 });
+                return nameTimer;
+            }
+            console.log(nameTimer, PTName)
 
-
+            const starCountRef = ref(database, `users/${uid}/${device}/${PTName}`);
+            console.log(`users/${uid}/${device}/${PTName}`)
+            get(starCountRef).then((snapshot) => {
+                if (snapshot.exists()) {
+                    set(ref(database, `users/${uid}/${device}/${nameTimer}`), snapshot.val());
+                    if (PTName != nameTimer) {
+                        remove(starCountRef)
+                    }
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
             });
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const timePicker = document.querySelector('.endTimer');
-
-                // Add onChange listener to the time picker
-                timePicker.addEventListener('input', function () {
-                    // Callback function to handle the change
-                    EndTimer = this.value
-                });
-
-
-            });
-
-        }
-
-        function editTimerName(element) {
-            // Implement the logic to edit timer name here
-            console.log('Edited timer name:', element.value);
-        }
-
-        function endTimer(timerClass, timeValue) {
-            const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
-            if (timerName === "") {
-                alert("Timer name cannot be empty. Please provide a name for the timer.");
-                return;
-            } else {
-                alert(`Timer ${timerName} with end time ${timeValue}`);
-            }
-            // Use timerName and timeValue in your timer end logic
+            return nameTimer;
 
         }
 
 
-        function deleteTimer(button) {
-            const timer = button.parentElement;
-            timer.remove();
-        }
-
-        function startTimer(timerClass, timeValue) {
-            const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
-            if (timerName === "") {
-                alert("Timer name cannot be empty. Please provide a name for the timer.");
-                return;
-            } else {
-                alert(`Timer ${timerName} with start time ${timeValue}`);
-            }
-            // Use timerName and timeValue in your timer logic
-
-        }
     </script>
 </body>
 
