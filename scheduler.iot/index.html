@@ -159,6 +159,8 @@
         var email = null;
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                initializePage();
+                console.log("cbusbfubdcbj ckasn")
             } else {
                 window.location.href = 'https://ronitrojasara.github.io/scheduler.iot/login';
             }
@@ -171,11 +173,97 @@
             const storedUid = localStorage.getItem('userUid');
 
         });
-
-        // Initialize Firebase
-
-
         let deviceCount = 0;
+
+        async function initializePage() {
+            // Assuming you have a "devices" node in your Firebase structure
+            const devicesRef = ref(database, `users/${uid}`);
+
+            try {
+                const devicesSnapshot = await get(devicesRef);
+
+                if (devicesSnapshot.exists()) {
+                    const devicesData = devicesSnapshot.val();
+
+                    Object.keys(devicesData).forEach(deviceName => {
+                        createDevice(deviceName, devicesData[deviceName]);
+                        deviceCount++;
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching data from Firebase:', error);
+            }
+        }
+
+        function createDevice(deviceName, timersData) {
+            const container = document.querySelector('.container');
+
+            const newDevice = document.createElement('div');
+            newDevice.classList.add('device');
+
+            newDevice.innerHTML = `
+        <button class="delete-device"><i class="fas fa-trash-alt"></i></button>
+        <h2 contenteditable="true">${deviceName}</h2>
+    `;
+
+            // Create timers
+            timersData && Object.keys(timersData).forEach((timerName, index) => {
+                createTimer(newDevice, timerName, timersData[timerName], index === 0);
+            });
+
+            container.insertBefore(newDevice, document.querySelector('.add-device'));
+
+            const deleteButton = newDevice.querySelector('.delete-device');
+            deleteButton.addEventListener('click', function () {
+                const device = this.parentElement;
+                device.remove();
+                remove(ref(database, `users/${uid}/${deviceName}`));
+            });
+        }
+
+        function createTimer(deviceElement, timerName, timerData, isFirstTimer) {
+            const newTimer = document.createElement('div');
+            newTimer.classList.add('timer');
+
+            const buttonClass = isFirstTimer ? `add-timer${timerName}` : `delete-timer${timerName}`;
+            const buttonText = isFirstTimer ? '<i class="fas fa-plus"></i>' : '<i class="fas fa-trash-alt"></i>';
+
+            const startTimerValue = timerData.startTimer === "--:-- --" ? '' : timerData.startTimer;
+            const endTimerValue = timerData.endTimer === "--:-- --" ? '' : timerData.endTimer;
+            newTimer.innerHTML = `
+        <input type="text" placeholder="Timer Name" value="${timerName}" />
+        <input type="time" class="startTimer" value="${startTimerValue}" />
+        <span class="time-separator">To</span>
+        <input type="time" class="endTimer" value="${endTimerValue}" />
+        <button class="${buttonClass}">${buttonText}</button>
+    `;
+
+            deviceElement.appendChild(newTimer);
+
+            const timerInput = newTimer.querySelector('input[type="text"]');
+            const StimePicker = newTimer.querySelector('.startTimer');
+            const EtimePicker = newTimer.querySelector('.endTimer');
+
+            // Add event listeners for timer buttons and other functionalities...
+
+            // For example:
+            if (isFirstTimer) {
+                const addButton = newTimer.querySelector(`.${buttonClass}`);
+                addButton.addEventListener('click', function () {
+                    addTimer(`timer`, '' , deviceElement.querySelector('h2').textContent);
+                    console.log(deviceElement.innerHTML,"hello")
+                });
+            } else {
+                const deleteButton = newTimer.querySelector(`.${buttonClass}`);
+                deleteButton.addEventListener('click', function () {
+                    remove(ref(database, `users/${uid}/${deviceElement.querySelector('h2').textContent}/${timerName}`));
+                    this.parentElement.remove();
+                });
+
+            }
+        }
+
+
         document.addEventListener('DOMContentLoaded', function () {
             const button = document.getElementById('add-device');
             button.addEventListener('click', addDevice);
@@ -344,9 +432,9 @@
 
             const deleteButton = newTimer.querySelector('.delete-timer');
             deleteButton.addEventListener('click', function () {
+                console.log(`delete at users/${uid}/${device}/${nameTimer}`)
+                remove(ref(database, `users/${uid}/${device}/${nameTimer}`));
                 this.parentElement.remove();
-                console.log(`users/${uid}/${device}/${nameInput.value}`)
-                remove(ref(database, `users/${uid}/${device}/${nameInput.value}`));
             });
 
             var nameInput = newTimer.querySelector('input[type="text"]');
