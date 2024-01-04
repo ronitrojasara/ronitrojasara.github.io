@@ -245,7 +245,51 @@
             const EtimePicker = newTimer.querySelector('.endTimer');
 
             // Add event listeners for timer buttons and other functionalities...
+            var PTName = timerInput.value;
+            timerInput.addEventListener('focusout', function () {
+                console.log(this.value)
+                if (this.value == '' || null) {
+                    console.log("hi")
+                } else {
+                    const h2 = deviceElement.querySelector('h2').textContent;
+                    PTName = editTimerName(this, PTName, h2);
+                }
 
+
+            });
+
+            StimePicker.addEventListener('focusout', (event) => {
+                
+                // const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+                if (timerInput.value === "" || null) {
+                    alert("Timer name cannot be empty. Please provide a name for the timer.");
+                    return;
+                } else {
+                    update(ref(database, `users/${uid}/${deviceElement.querySelector('h2').textContent}/${timerInput.value}`), {
+                        startTimer: `${event.target.value}`
+                    });
+                    alert(`Timer ${timerInput.value} with start time ${event.target.value}`);
+                }
+                // Use timerName and timeValue in your timer logic
+
+            
+            });
+
+            EtimePicker.addEventListener('focusout', (event) => {
+                // const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
+                if (timerInput.value === "" || null) {
+                    alert("Timer name cannot be empty. Please provide a name for the timer.");
+                    return;
+                } else {
+                    update(ref(database, `users/${uid}/${deviceElement.querySelector('h2').textContent}/${timerInput.value}`), {
+                        endTimer: `${event.target.value}`
+                    });
+                    alert(`Timer ${timerInput.value} with end time ${event.target.value}`);
+                }
+                // Use timerName and timeValue in your timer logic
+
+            
+            });
             // For example:
             if (isFirstTimer) {
                 const addButton = newTimer.querySelector(`.${buttonClass}`);
@@ -340,15 +384,15 @@
             });
 
             const StimePicker = newDevice.querySelector('.startTimer');
-            console.log(StimePicker)
-            StimePicker.addEventListener('input', (event) => {
+            
+            StimePicker.addEventListener('focusout', (event) => {
                 StartTimer = event.target.value;
                 startTimer(timerInput.value, StartTimer, nameElement.textContent)
             });
 
             const EtimePicker = newDevice.querySelector('.endTimer');
-            console.log(EtimePicker)
-            EtimePicker.addEventListener('input', (event) => {
+            
+            EtimePicker.addEventListener('focusout', (event) => {
                 EndTimer = event.target.value;
                 endTimer(timerInput.value, EndTimer, nameElement.textContent)
             });
@@ -450,7 +494,7 @@
 
             const StimePicker = newTimer.querySelector('.startTimer');
             console.log(StimePicker)
-            StimePicker.addEventListener('input', (event) => {
+            StimePicker.addEventListener('focusout', (event) => {
                 StartTimer = event.target.value;
                 // startTimer(nameInput.value, StartTimer)
                 if (nameInput.value === "" || null) {
@@ -467,7 +511,7 @@
 
             const EtimePicker = newTimer.querySelector('.endTimer');
             console.log(EtimePicker)
-            EtimePicker.addEventListener('input', (event) => {
+            EtimePicker.addEventListener('focusout', (event) => {
                 EndTimer = event.target.value;
                 if (nameInput.value === "" || null) {
                     alert("Timer name cannot be empty. Please provide a name for the timer.");
