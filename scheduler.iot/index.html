@@ -205,7 +205,17 @@
         <button class="delete-device"><i class="fas fa-trash-alt"></i></button>
         <h2 contenteditable="true">${deviceName}</h2>
     `;
+const nameElement = newDevice.querySelector('h2');
+            var PName = nameElement.textContent;
+            nameElement.addEventListener('focusout', function () {
 
+                if (this.textContent == '' || null) {
+                } else {
+                    PName = editDeviceName(this, PName);
+                }
+
+
+            });
             // Create timers
             timersData && Object.keys(timersData).forEach((timerName, index) => {
                 createTimer(newDevice, timerName, timersData[timerName], index === 0);
