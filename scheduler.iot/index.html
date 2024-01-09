@@ -160,9 +160,8 @@
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 initializePage();
-                console.log("cbusbfubdcbj ckasn")
             } else {
-                window.location.href = 'https://ronitrojasara.github.io/scheduler.iot/login';
+                window.location.href = '/login.html';
             }
             uid = user.uid;
             email = user.email
@@ -205,7 +204,7 @@
         <button class="delete-device"><i class="fas fa-trash-alt"></i></button>
         <h2 contenteditable="true">${deviceName}</h2>
     `;
-const nameElement = newDevice.querySelector('h2');
+            const nameElement = newDevice.querySelector('h2');
             var PName = nameElement.textContent;
             nameElement.addEventListener('focusout', function () {
 
@@ -255,6 +254,12 @@ const nameElement = newDevice.querySelector('h2');
             const EtimePicker = newTimer.querySelector('.endTimer');
 
             // Add event listeners for timer buttons and other functionalities...
+            timerInput.addEventListener('keydown', function (event) {
+                // Prevent the input of space character
+                if (event.key === ' ') {
+                    event.preventDefault();
+                }
+            });
             var PTName = timerInput.value;
             timerInput.addEventListener('focusout', function () {
                 console.log(this.value)
@@ -269,7 +274,7 @@ const nameElement = newDevice.querySelector('h2');
             });
 
             StimePicker.addEventListener('focusout', (event) => {
-                
+
                 // const timerName = document.querySelector(`.${timerClass} input[type="text"]`).value;
                 if (timerInput.value === "" || null) {
                     alert("Timer name cannot be empty. Please provide a name for the timer.");
@@ -282,7 +287,7 @@ const nameElement = newDevice.querySelector('h2');
                 }
                 // Use timerName and timeValue in your timer logic
 
-            
+
             });
 
             EtimePicker.addEventListener('focusout', (event) => {
@@ -298,14 +303,14 @@ const nameElement = newDevice.querySelector('h2');
                 }
                 // Use timerName and timeValue in your timer logic
 
-            
+
             });
             // For example:
             if (isFirstTimer) {
                 const addButton = newTimer.querySelector(`.${buttonClass}`);
                 addButton.addEventListener('click', function () {
-                    addTimer(`timer`, '' , deviceElement.querySelector('h2').textContent);
-                    console.log(deviceElement.innerHTML,"hello")
+                    addTimer(`timer`, '', deviceElement.querySelector('h2').textContent);
+                    console.log(deviceElement.innerHTML, "hello")
                 });
             } else {
                 const deleteButton = newTimer.querySelector(`.${buttonClass}`);
@@ -379,7 +384,12 @@ const nameElement = newDevice.querySelector('h2');
                 }
             });
             const timerInput = newDevice.querySelector('.timer input[type="text"]');
-
+            timerInput.addEventListener('keydown', function (event) {
+                // Prevent the input of space character
+                if (event.key === ' ') {
+                    event.preventDefault();
+                }
+            });
             var PTName = timerInput.value;
             timerInput.addEventListener('focusout', function () {
                 console.log(this.value)
@@ -394,14 +404,14 @@ const nameElement = newDevice.querySelector('h2');
             });
 
             const StimePicker = newDevice.querySelector('.startTimer');
-            
+
             StimePicker.addEventListener('focusout', (event) => {
                 StartTimer = event.target.value;
                 startTimer(timerInput.value, StartTimer, nameElement.textContent)
             });
 
             const EtimePicker = newDevice.querySelector('.endTimer');
-            
+
             EtimePicker.addEventListener('focusout', (event) => {
                 EndTimer = event.target.value;
                 endTimer(timerInput.value, EndTimer, nameElement.textContent)
@@ -492,6 +502,12 @@ const nameElement = newDevice.querySelector('h2');
             });
 
             var nameInput = newTimer.querySelector('input[type="text"]');
+            nameInput.addEventListener('keydown', function (event) {
+                // Prevent the input of space character
+                if (event.key === ' ') {
+                    event.preventDefault();
+                }
+            });
             var PTName = nameInput.value;
             nameInput.addEventListener('focusout', function () {
                 if (this.value == '' || null) {
