@@ -4,7 +4,7 @@ Fear not, dear reader! Let me guide you back to the main storyline. Start your j
   
   Example for Page 0: ronitrojasara.github.io/0
                       ronitrojasara.github.io/0.html
-                      ronitrojasara.github.io/0.txt
+                      ronitrojasara.github.io/0.txt (faster speed to load those pages.)
   Psst! Avoid testing ronitrojasara.github.io/0.htm – it won't lead you anywhere. Stick to the tried and true paths!
 
 And remember, just like in any good book, sometimes the best discoveries come from unexpected detours. Happy reading!
