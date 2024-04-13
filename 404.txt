@@ -1,9 +1,11 @@
 Oops! Looks like you've wandered off the beaten path and stumbled upon a page that doesn't exist. Don't worry, getting lost in a book can happen to the best of us!
 In this library of digital pages, each page is a chapter waiting to be explored. But it seems you've jumped ahead to a page that hasn't been written yet.
 Fear not, dear reader! Let me guide you back to the main storyline. Start your journey from the beginning by navigating to the page number you desire, like this: ronitrojasara.github.io/(pagenumber).
-
-Example for Page 0: ronitrojasara.github.io/0 or ronitrojasara.github.io/0.html or ronitrojasara.github.io/0.txt
-Psst! Avoid testing ronitrojasara.github.io/0.htm – it won't lead you anywhere. Stick to the tried and true paths!
+  
+  Example for Page 0: ronitrojasara.github.io/0
+                      ronitrojasara.github.io/0.html
+                      ronitrojasara.github.io/0.txt
+  Psst! Avoid testing ronitrojasara.github.io/0.htm – it won't lead you anywhere. Stick to the tried and true paths!
 
 And remember, just like in any good book, sometimes the best discoveries come from unexpected detours. Happy reading!
 ---------------------------------------------------------------------------------------------------------------------
