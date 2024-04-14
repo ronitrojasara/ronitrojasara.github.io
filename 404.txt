@@ -3,12 +3,18 @@ In this library of digital pages, each page is a chapter waiting to be explored.
 Fear not, dear reader! Let me guide you back to the main storyline. Start your journey from the beginning by navigating to the page number you desire, like this: ronitrojasara.github.io/(pagenumber).
   
 Example for Page 0:
-  ronitrojasara.github.io/0
-  ronitrojasara.github.io/0.html
-  ronitrojasara.github.io/0.txt (faster speed to load those pages -* only for valid page numbers.) (Avoid on small display devices like smartphones. However, if you wish to explore these pages, you can follow up at ronitrojasara.github.io/404.txt.)
+  - ronitrojasara.github.io/0
+  - ronitrojasara.github.io/0.html
 
   Psst! Avoid testing
-  ronitrojasara.github.io/0.htm – it won't lead you anywhere. Stick to the tried and true paths!
+  - ronitrojasara.github.io/0.htm
+    [it won't lead you anywhere. Stick to the tried and true paths!]
+
+  - ronitrojasara.github.io/0.txt 
+  (faster speed to load those pages - *only for valid page numbers.)
+  (Avoid on small display devices like smartphones. However, if you wish to explore these pages, you can follow up at ronitrojasara.github.io/404.txt.)
+
+
 
 And remember, just like in any good book, sometimes the best discoveries come from unexpected detours. Happy reading!
 ---------------------------------------------------------------------------------------------------------------------
