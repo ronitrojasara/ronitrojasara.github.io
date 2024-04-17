@@ -13,7 +13,7 @@ Example for Page 0:
     (it won't lead you anywhere. Stick to the tried and true paths!)
 
   - ronitrojasara.github.io/0.txt
-    (Only pages 1-38 and 404 are supported now.)
+    (Only pages 0 and 404 are supported now.)
     (faster speed to load those pages.)
     (Avoid on small display devices like smartphones.)
 
