@@ -12,9 +12,8 @@ Example for Page 0:
 
   - ronitrojasara.github.io/0.txt 
   (faster speed to load those pages - *only for valid page numbers.)
-  (Avoid on small display devices like smartphones. However, if you wish to explore these pages, you can follow up at ronitrojasara.github.io/404.txt.)
-
-
+  (Avoid on small display devices like smartphones.)
+  (Only pages 1-38 and 404 are supported now.)
 
 And remember, just like in any good book, sometimes the best discoveries come from unexpected detours. Happy reading!
 ---------------------------------------------------------------------------------------------------------------------
