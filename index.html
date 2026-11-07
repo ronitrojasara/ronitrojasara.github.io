@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="color-scheme" content="dark">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ronit Rojasara</title>
-    <style>
-        * {
-            font-family: monospace;
-            font-size: 18px;
-        }
-
-        .unselectable {
-            -webkit-user-select: none;
-            /* Safari */
-            -moz-user-select: none;
-            /* Firefox */
-            -ms-user-select: none;
-            /* IE10+ */
-            user-select: none;
-            /* Standard syntax */
-        }
-    </style>
+    <title>Login</title>
 </head>
-
 <body>
-    <a href="/" style="text-decoration: none; color: inherit;"> <div style="margin: 16px; font-size: 30px;" class="unselectable" ><span style="color:crimson;font-size: 30px;">RONIT</span><span  style="color:gray;font-size: 30px;">ROJASARA</span></div></a>
-    <main>
-    </main>
-</body>
+    <form onsubmit="return true;">
+        <div>
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <br>
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Log In</button>
+        </div>
+    </form>
 
+</body>
 </html>
